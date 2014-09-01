@@ -1,0 +1,202 @@
+[jon@jon-thinkpad ~]$ udevadm monitor
+monitor will print the received events for:
+UDEV - the event which udev sends out after rule processing
+KERNEL - the kernel uevent
+
+KERNEL[274229.626995] add      /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2 (usb)
+KERNEL[274229.628690] add      /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.0 (usb)
+UDEV  [274229.631496] add      /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2 (usb)
+KERNEL[274229.635641] add      /module/usblp (module)
+UDEV  [274229.636445] add      /module/usblp (module)
+KERNEL[274229.700555] add      /class/usbmisc (class)
+KERNEL[274229.700718] add      /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.0/usbmisc/lp0 (usbmisc)
+KERNEL[274229.700735] add      /bus/usb/drivers/usblp (drivers)
+UDEV  [274229.700822] add      /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.0 (usb)
+UDEV  [274229.701261] add      /class/usbmisc (class)
+UDEV  [274229.701279] add      /bus/usb/drivers/usblp (drivers)
+UDEV  [274229.701783] add      /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.0/usbmisc/lp0 (usbmisc)
+
+[jon@jon-thinkpad ~]$ udevadm info -q all -p /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.0/usbmisc/lp0
+P: /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.0/usbmisc/lp0
+N: usb/lp0
+E: DEVNAME=/dev/usb/lp0
+E: DEVPATH=/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.0/usbmisc/lp0
+E: MAJOR=180
+E: MINOR=0
+E: SUBSYSTEM=usbmisc
+
+[jon@jon-thinkpad ~]$ udevadm info -q all -p /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.0
+P: /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.0
+E: DEVPATH=/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.0
+E: DEVTYPE=usb_interface
+E: DRIVER=usblp
+E: ID_MODEL_FROM_DATABASE=Integrated Rate Matching Hub
+E: ID_VENDOR_FROM_DATABASE=Intel Corp.
+E: INTERFACE=7/1/2
+E: MODALIAS=usb:v0F0Bp8101d0100dc00dsc00dp00ic07isc01ip02in00
+E: PRODUCT=f0b/8101/100
+E: SUBSYSTEM=usb
+E: TYPE=0/0/0
+E: USEC_INITIALIZED=4229628729
+
+[jon@jon-thinkpad ~]$ udevadm info -q all -p /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2
+P: /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2
+N: bus/usb/001/012
+E: BUSNUM=001
+E: DEVNAME=/dev/bus/usb/001/012
+E: DEVNUM=012
+E: DEVPATH=/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2
+E: DEVTYPE=usb_device
+E: DRIVER=usb
+E: ID_BUS=usb
+E: ID_MODEL=USB-PRINTER
+E: ID_MODEL_ENC=USB-PRINTER
+E: ID_MODEL_FROM_DATABASE=Integrated Rate Matching Hub
+E: ID_MODEL_ID=8101
+E: ID_REVISION=0100
+E: ID_SERIAL=GCC_USB-PRINTER
+E: ID_USB_INTERFACES=:070102:
+E: ID_VENDOR=GCC
+E: ID_VENDOR_ENC=GCC
+E: ID_VENDOR_FROM_DATABASE=Intel Corp.
+E: ID_VENDOR_ID=0f0b
+E: MAJOR=189
+E: MINOR=11
+E: PRODUCT=f0b/8101/100
+E: SUBSYSTEM=usb
+E: SYSTEMD_WANTS=printer.target
+E: TAGS=:systemd:
+E: TYPE=0/0/0
+E: USEC_INITIALIZED=274229626971
+
+[jon@jon-thinkpad ~]$ udevadm info -p /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2 -a
+
+Udevadm info starts with the device specified by the devpath and then
+walks up the chain of parent devices. It prints for every device
+found, all possible attributes in the udev rules key format.
+A rule to match, can be composed by the attributes of the device
+and the attributes from one single parent device.
+
+  looking at device '/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2':
+    KERNEL=="1-1.2"
+    SUBSYSTEM=="usb"
+    DRIVER=="usb"
+    ATTR{bDeviceSubClass}=="00"
+    ATTR{bDeviceProtocol}=="00"
+    ATTR{devpath}=="1.2"
+    ATTR{idVendor}=="0f0b"
+    ATTR{speed}=="12"
+    ATTR{bNumInterfaces}==" 1"
+    ATTR{bConfigurationValue}=="1"
+    ATTR{bMaxPacketSize0}=="16"
+    ATTR{busnum}=="1"
+    ATTR{devnum}=="12"
+    ATTR{configuration}=="GCC"
+    ATTR{bMaxPower}=="100mA"
+    ATTR{authorized}=="1"
+    ATTR{bmAttributes}=="c0"
+    ATTR{bNumConfigurations}=="1"
+    ATTR{maxchild}=="0"
+    ATTR{bcdDevice}=="0100"
+    ATTR{avoid_reset_quirk}=="0"
+    ATTR{quirks}=="0x0"
+    ATTR{version}==" 1.10"
+    ATTR{urbnum}=="12"
+    ATTR{ltm_capable}=="no"
+    ATTR{manufacturer}=="GCC"
+    ATTR{removable}=="removable"
+    ATTR{idProduct}=="8101"
+    ATTR{bDeviceClass}=="00"
+    ATTR{product}=="USB-PRINTER"
+
+  looking at parent device '/devices/pci0000:00/0000:00:1a.0/usb1/1-1':
+    KERNELS=="1-1"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="usb"
+    ATTRS{bDeviceSubClass}=="00"
+    ATTRS{bDeviceProtocol}=="01"
+    ATTRS{devpath}=="1"
+    ATTRS{idVendor}=="8087"
+    ATTRS{speed}=="480"
+    ATTRS{bNumInterfaces}==" 1"
+    ATTRS{bConfigurationValue}=="1"
+    ATTRS{bMaxPacketSize0}=="64"
+    ATTRS{busnum}=="1"
+    ATTRS{devnum}=="2"
+    ATTRS{configuration}==""
+    ATTRS{bMaxPower}=="0mA"
+    ATTRS{authorized}=="1"
+    ATTRS{bmAttributes}=="e0"
+    ATTRS{bNumConfigurations}=="1"
+    ATTRS{maxchild}=="6"
+    ATTRS{bcdDevice}=="0000"
+    ATTRS{avoid_reset_quirk}=="0"
+    ATTRS{quirks}=="0x0"
+    ATTRS{version}==" 2.00"
+    ATTRS{urbnum}=="694"
+    ATTRS{ltm_capable}=="no"
+    ATTRS{removable}=="fixed"
+    ATTRS{idProduct}=="0020"
+    ATTRS{bDeviceClass}=="09"
+
+  looking at parent device '/devices/pci0000:00/0000:00:1a.0/usb1':
+    KERNELS=="usb1"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="usb"
+    ATTRS{bDeviceSubClass}=="00"
+    ATTRS{bDeviceProtocol}=="00"
+    ATTRS{devpath}=="0"
+    ATTRS{idVendor}=="1d6b"
+    ATTRS{speed}=="480"
+    ATTRS{bNumInterfaces}==" 1"
+    ATTRS{bConfigurationValue}=="1"
+    ATTRS{bMaxPacketSize0}=="64"
+    ATTRS{authorized_default}=="1"
+    ATTRS{busnum}=="1"
+    ATTRS{devnum}=="1"
+    ATTRS{configuration}==""
+    ATTRS{bMaxPower}=="0mA"
+    ATTRS{authorized}=="1"
+    ATTRS{bmAttributes}=="e0"
+    ATTRS{bNumConfigurations}=="1"
+    ATTRS{maxchild}=="3"
+    ATTRS{bcdDevice}=="0315"
+    ATTRS{avoid_reset_quirk}=="0"
+    ATTRS{quirks}=="0x0"
+    ATTRS{serial}=="0000:00:1a.0"
+    ATTRS{version}==" 2.00"
+    ATTRS{urbnum}=="106"
+    ATTRS{ltm_capable}=="no"
+    ATTRS{manufacturer}=="Linux 3.15.8-1-ARCH ehci_hcd"
+    ATTRS{removable}=="unknown"
+    ATTRS{idProduct}=="0002"
+    ATTRS{bDeviceClass}=="09"
+    ATTRS{product}=="EHCI Host Controller"
+
+  looking at parent device '/devices/pci0000:00/0000:00:1a.0':
+    KERNELS=="0000:00:1a.0"
+    SUBSYSTEMS=="pci"
+    DRIVERS=="ehci-pci"
+    ATTRS{irq}=="23"
+    ATTRS{subsystem_vendor}=="0x17aa"
+    ATTRS{broken_parity_status}=="0"
+    ATTRS{class}=="0x0c0320"
+    ATTRS{companion}==""
+    ATTRS{enabled}=="1"
+    ATTRS{consistent_dma_mask_bits}=="32"
+    ATTRS{dma_mask_bits}=="32"
+    ATTRS{local_cpus}=="00000000,00000000,00000000,0000000f"
+    ATTRS{device}=="0x3b3c"
+    ATTRS{uframe_periodic_max}=="100"
+    ATTRS{msi_bus}==""
+    ATTRS{local_cpulist}=="0-3"
+    ATTRS{vendor}=="0x8086"
+    ATTRS{subsystem_device}=="0x2163"
+    ATTRS{numa_node}=="-1"
+    ATTRS{d3cold_allowed}=="1"
+
+  looking at parent device '/devices/pci0000:00':
+    KERNELS=="pci0000:00"
+    SUBSYSTEMS==""
+    DRIVERS==""
+

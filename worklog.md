@@ -21,18 +21,21 @@ Attempting to send an .epi file results in a job/file showing  up "01" (no name)
 Job started but showed PCL command error, then HPGL command error.
 After 10 seconds the head moved but the laser was seemingly not fireing
 
+Sending the file from within fabmodules also works as expected
 
 
 TODO:
 
-* Test fabmodules with existing driver+printer.
-Not possible, requires Universal or Epilog access?
-* Copy universal driver as is
-* Attempt to send .uni to printer?
+* Add skeleton .gcc driver, based on existing epi
 * Modify driver according to spec
-* Test
+* Test test test
 
 * Video of a first cutting job
 * Add end-to-end automated tests.
 Input=dxf file, output=.gcc.
 Initially Simple geometric shapes
+
+Later: 
+
+* Test fabmodules with existing driver+printer.
+Not possible, requires Universal or Epilog access?

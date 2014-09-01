@@ -9,4 +9,4 @@ Proof-of-concept in progress
 
 Worklog
 --------
-[./worklog.md](Worklog)
+[./worklog.md](./worklog.md)

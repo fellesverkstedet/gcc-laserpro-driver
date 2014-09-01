@@ -10,6 +10,8 @@ Done
 
 TODO:
 
+* Test fabmodules with existing driver+printer.
+Not possible, requires Universal or Epilog access?
 * Copy universal driver as is
 * Attempt to send .uni to printer?
 * Modify driver according to spec

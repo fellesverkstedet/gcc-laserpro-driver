@@ -2,16 +2,14 @@
 Monday 1 September 2014
 -------------------------
 
-Done
+Set up and print a test pieces using existing driver from Adobe Illustrator
+Connect machine to Linux, see what device it shows up as. [/dev/usb/lp0](./data/udevinfo.txt)
 
-* Set up and print a test pieces using existing driver from Adobe Illustrator
-* Connect machine to Linux, see what device it shows up as. [/dev/usb/lp0](./data/udevinfo.txt)
+Attempted to send .uni file directly to /dev/usb/lp0 using cat. No go, shows empty file on
 
-* Attempted to send .uni file directly to /dev/usb/lp0 using cat. No go, shows empty file on
-
-* Attempt to set up the laser with CUPS
-Shows up as "GCC EXPLORER"
-Used Generic driver settings, PCL 5.0. Set name to "laser" (expected by fabmodules)
+Attempt to set up the laser with CUPS. 
+Shows up as "GCC EXPLORER".
+Used Generic driver settings, PCL 5.0. Set name to "laser" (expected by fabmodules).
 Used defaults for settings, except used manual area and set scaling to "crop".
 
 Attempting to send an .uni file (produced with fabmodules) resulted in no activity
@@ -21,21 +19,15 @@ Attempting to send an .epi file results in a job/file showing  up "01" (no name)
 Job started but showed PCL command error, then HPGL command error.
 After 10 seconds the head moved but the laser was seemingly not fireing
 
-Sending the file from within fabmodules also works as expected
+Sending the file from within fabmodules also works as expected.
 
+Added a skeleton GCC driver, based on the exiting one for Epilog
 
-TODO:
+Modified and tweaked the driver to be able to cut paths.
 
-* Add skeleton .gcc driver, based on existing epi
-* Modify driver according to spec
-* Test test test
+Dumped some output files from existing driver to figure out how pen intensity/speed/ppi was encoded.
+Using "FILE" as the port of the Windows printer, as found under Preferences on the printer setup,
+was a very easy way to do this.
+Turned out to be 4-character 0-padded ascii values, for each of the 16 pens.
 
-* Video of a first cutting job
-* Add end-to-end automated tests.
-Input=dxf file, output=.gcc.
-Initially Simple geometric shapes
-
-Later: 
-
-* Test fabmodules with existing driver+printer.
-Not possible, requires Universal or Epilog access?
+Recorded a short video of current status.

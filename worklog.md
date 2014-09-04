@@ -2,6 +2,8 @@
 Monday 1 September 2014
 -------------------------
 
+Time spent: 9 hours
+
 Set up and print a test pieces using existing driver from Adobe Illustrator
 Connect machine to Linux, see what device it shows up as. [/dev/usb/lp0](./data/udevinfo.txt)
 
@@ -31,3 +33,20 @@ was a very easy way to do this.
 Turned out to be 4-character 0-padded ascii values, for each of the 16 pens.
 
 Recorded a short video of current status.
+
+
+Thursdag 4 September 2014
+----------------------------
+
+Time spent: 7 hours
+
+Verified origin/offset generally working.
+
+Debugged why laser turns on when sending pen-up (PU) commands.
+It seems that when using position-relative (PR), as original driver does, this does not occur.
+However, sending a select-pen (SR) command the issue is also avoided. Unclear why.
+
+Fixed the inverted Y axis. Currently assumes 460 mm work-area.
+Made a more generic fix for correct proportions, both for job origin and scaling.
+
+Added Fabmodules workflow from SVG to GCC

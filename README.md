@@ -32,8 +32,8 @@ Later/maybe:
 - Integrate support in Lasersaur app
 
 
-Demos
-------
+Demos videos
+--------------
 
 [![First complete cut](http://img.youtube.com/vi/T_f-NWOrRFQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=T_f-NWOrRFQ)
 

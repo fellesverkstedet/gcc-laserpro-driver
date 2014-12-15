@@ -2,11 +2,13 @@
 Open drivers for GCC Spirit LS
 ===============================
 
-The driver for Fabmodules can be found here:
-https://github.com/jonnor/fabmodules
+The driver is integrated in Fabmodules, and can be found here:
+https://github.com/fellesverkstedet/fabmodules
 
 Status
 --------
+Basic functionality working
+
 - GCC output driver integrated in Fabmodules, can import SVG and PNG.
 - Basic vector functionality present, including upload to printer.
 - Can cut/engrave paths with correct proportions.
@@ -35,6 +37,6 @@ Worklog
 Related
 ----------------
 
-* Near-full set of [GCC LaserPro commands]
-(http://www.wiki.cl.cam.ac.uk/rowiki/CompArch/HardwareLab/LaserCutter) (reverse-engineered)
+* Near-full set of
+[GCC LaserPro commands](http://www.wiki.cl.cam.ac.uk/rowiki/CompArch/HardwareLab/LaserCutter) (reverse-engineered)
 

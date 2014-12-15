@@ -15,7 +15,9 @@ Basic functionality working
 - PPI, speed and power settings are respected.
 - Job offset/origin is respected, interpreted from top-left
 
-TODO (prioritized):
+TODO
+-----
+Prioritized:
 
 - Enable using offset relative to other positions than top-left
 - Fix/enable relative job origin

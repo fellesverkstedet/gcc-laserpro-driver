@@ -19,6 +19,7 @@ TODO
 -----
 Prioritized:
 
+- Set up a Linux machine with Fabmodules at Fellesverkstedet
 - Enable using offset relative to other positions than top-left
 - Fix/enable relative job origin
 - Add automated tests: .svg/.path -> .gcc

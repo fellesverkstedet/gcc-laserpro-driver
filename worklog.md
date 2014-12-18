@@ -1,4 +1,5 @@
 
+
 Monday 1 September 2014
 -------------------------
 
@@ -50,3 +51,24 @@ Fixed the inverted Y axis. Currently assumes 460 mm work-area.
 Made a more generic fix for correct proportions, both for job origin and scaling.
 
 Added Fabmodules workflow from SVG to GCC
+
+
+Thursday 18 December 2014
+---------------------------
+
+Time spent: 
+
+Verified existing setup still working.
+In Arch Linux, the CUPS service had been renamed from cups.service to org.cups.cupsd.service
+Worked when taking this into account.
+
+On Arch Linux, also need to fix Python hashbangs because Python3 is default
+
+    sed -i -e "s|#![ ]*/usr/bin/python$|#!/usr/bin/python2|" -e "s|#![ ]*/usr/bin/env python$|#!/usr/bin/env python2|" bin/*
+
+Remove autofocus button, replaced with "Make sure to focus" text.
+
+Installed Ubuntu 14.04 on laser cutter control machine. Installing to USB stick failed,
+using Virtualbox in Windows instead. Documenting process going along so others can reproduce.
+
+

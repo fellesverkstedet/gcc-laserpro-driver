@@ -9,6 +9,25 @@ The rest of the instructions might need some changes if using another distributi
 2. Setup CUPS printer service
 -------------------------
 
+Open a web browser, go to http://localhost:631
+
+If this does not give you a web interface make sure CUPS is intalled, and that cupsd is running.
+
+    Go to Adding new Printers -> Add Printer
+    Select your printer, should be "GCC EXPLORER" or similar
+    Continue
+    (very important) Give it the Name: laser
+    Continue
+    Chose Make: Generic
+    Continue
+    Chose Model: Generic PCL 5 LF Printer - CUPS+GutenPrint
+    Add Printer
+    Chose Media Size: Manual
+    Chose Shrink Page: Crop
+    Set Default Options
+
+It should now say setup success, and show the status of the printer as Idle.
+    
 
 3. Install fabmodules
 -------------------
@@ -22,7 +41,7 @@ Open a terminal
 
 Install dependencies
 
-    sudo apt-get install python python-wxgtk2.8 python-dev python-pip gcc g++ libpng12-dev libgif-dev make bash okular libboost-thread-dev libboost-system-dev cmake
+    sudo apt-get install python python-wxgtk2.8 python-dev python-pip gcc g++ libpng12-dev libgif-dev make bash okular libboost-thread-dev libboost-system-dev cmake git
 
 Get the code
 

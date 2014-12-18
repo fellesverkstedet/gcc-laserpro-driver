@@ -19,19 +19,21 @@ TODO
 -----
 Prioritized:
 
-- Set up a Linux machine with Fabmodules at Fellesverkstedet
 - Enable using offset relative to other positions than top-left
-- Fix/enable relative job origin
-- Add automated tests: .svg/.path -> .gcc
-- Document usage/setup
 - Upstream the support to fabmodules project
 - Send code to Fablab Amsterdam for testing
 
+
 Later/maybe:
 
+- Add automated tests: .svg/.path -> .gcc
+- Fix/enable relative job origin
 - Implement native raster support
 - Integrate support in Lasersaur app
 
+Installing
+------------
+See [./SETUP.md](SETUP.md)
 
 Demos videos
 --------------

@@ -62,7 +62,7 @@ In the terminal
 
     fab
 
-Choose "Vector SVG" and "GCC laser cutter", hit "Start".
+Choose "Vector SVG" and "GCC laser cutter", hit "make_svg_gcc".
 A new window should appear.
 
 Load an SVG file, click "make path", then "make gcc" and then "Send it!"
